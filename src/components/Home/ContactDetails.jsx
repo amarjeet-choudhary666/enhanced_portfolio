@@ -44,8 +44,8 @@ const ContactDetails = () => {
 
   const formVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
@@ -55,11 +55,11 @@ const ContactDetails = () => {
   }
 
   const fieldVariants = {
-    inactive: { 
+    inactive: {
       y: 0,
       transition: { type: "spring", damping: 15 }
     },
-    active: { 
+    active: {
       y: -5,
       transition: { type: "spring", damping: 15 }
     }
@@ -76,12 +76,12 @@ const ContactDetails = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     try {
       await emailjs.sendForm(
-        'service_y8pjhld', 
-        'template_4pw8vn9', 
-        form.current, 
+        'service_y8pjhld',
+        'template_4pw8vn9',
+        form.current,
         'DRzrGp01XHDINJptR'
       )
       setSubmitStatus('success')
@@ -115,12 +115,12 @@ const ContactDetails = () => {
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
           }}
-          initial={{ 
+          initial={{
             y: 0,
             x: 0,
             opacity: 0
           }}
-          animate={{ 
+          animate={{
             y: [0, -100, -200, -300],
             x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, Math.random() * 100 - 50],
             opacity: [0, 1, 1, 0],
@@ -150,7 +150,7 @@ const ContactDetails = () => {
       >
         {/* Decorative border animation */}
         <div className="absolute inset-0 overflow-hidden rounded-3xl -z-10">
-          <motion.div 
+          <motion.div
             className="absolute inset-0 bg-[conic-gradient(from_90deg_at_50%_50%,#3b82f6_0%,#8b5cf6_50%,#3b82f6_100%)] opacity-20"
             animate={{ backgroundPosition: ['0% 0%', '100% 100%'] }}
             transition={{
@@ -165,7 +165,7 @@ const ContactDetails = () => {
           {/* Left side - Contact info */}
           <div className="md:w-2/5 space-y-8">
             <div className="space-y-4">
-              <motion.h2 
+              <motion.h2
                 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -173,7 +173,7 @@ const ContactDetails = () => {
               >
                 Let's Connect
               </motion.h2>
-              <motion.p 
+              <motion.p
                 className="text-gray-300"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -183,7 +183,7 @@ const ContactDetails = () => {
               </motion.p>
             </div>
 
-            <motion.div 
+            <motion.div
               className="space-y-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -227,7 +227,7 @@ const ContactDetails = () => {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="pt-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -259,7 +259,7 @@ const ContactDetails = () => {
           {/* Right side - Form */}
           <div className="md:w-3/5">
             <form ref={form} onSubmit={handleSubmit} className="space-y-6">
-              <motion.div 
+              <motion.div
                 className="relative"
                 variants={fieldVariants}
                 animate={activeField === 'name' ? 'active' : 'inactive'}
@@ -279,7 +279,7 @@ const ContactDetails = () => {
                     required
                     className="w-full bg-gray-800/50 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 border border-gray-700 hover:border-blue-400/50 backdrop-blur-sm"
                   />
-                  <motion.div 
+                  <motion.div
                     className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-blue-400 to-purple-400"
                     initial={{ width: 0 }}
                     animate={{ width: activeField === 'name' ? '100%' : 0 }}
@@ -288,7 +288,7 @@ const ContactDetails = () => {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 className="relative"
                 variants={fieldVariants}
                 animate={activeField === 'email' ? 'active' : 'inactive'}
@@ -308,7 +308,7 @@ const ContactDetails = () => {
                     required
                     className="w-full bg-gray-800/50 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 border border-gray-700 hover:border-blue-400/50 backdrop-blur-sm"
                   />
-                  <motion.div 
+                  <motion.div
                     className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-blue-400 to-purple-400"
                     initial={{ width: 0 }}
                     animate={{ width: activeField === 'email' ? '100%' : 0 }}
@@ -317,7 +317,7 @@ const ContactDetails = () => {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 className="relative"
                 variants={fieldVariants}
                 animate={activeField === 'message' ? 'active' : 'inactive'}
@@ -337,7 +337,7 @@ const ContactDetails = () => {
                     rows="5"
                     className="w-full bg-gray-800/50 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 border border-gray-700 hover:border-blue-400/50 backdrop-blur-sm"
                   ></textarea>
-                  <motion.div 
+                  <motion.div
                     className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-blue-400 to-purple-400"
                     initial={{ width: 0 }}
                     animate={{ width: activeField === 'message' ? '100%' : 0 }}
@@ -349,8 +349,8 @@ const ContactDetails = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                whileHover={{ 
-                  scale: 1.02, 
+                whileHover={{
+                  scale: 1.02,
                   boxShadow: "0 0 20px rgba(99, 102, 241, 0.5)",
                   backgroundPosition: "100% 50%"
                 }}
@@ -391,7 +391,7 @@ const ContactDetails = () => {
               className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50"
               onClick={() => setShowPopup(false)}
             >
-              <motion.div 
+              <motion.div
                 className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700/50 w-full max-w-md relative overflow-hidden"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -401,9 +401,9 @@ const ContactDetails = () => {
               >
                 <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 rounded-full filter blur-xl"></div>
                 <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-purple-500/10 rounded-full filter blur-xl"></div>
-                
+
                 <div className="relative z-10 text-center">
-                  <motion.div 
+                  <motion.div
                     className="mx-auto w-24 h-24 mb-6 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20"
                     initial={{ scale: 0.8, rotate: -10 }}
                     animate={{ scale: 1, rotate: 0 }}
@@ -419,16 +419,16 @@ const ContactDetails = () => {
                       </svg>
                     )}
                   </motion.div>
-                  
+
                   <h3 className="text-2xl font-bold text-white mb-2">
                     {submitStatus === 'success' ? 'Message Sent!' : 'Error Occurred'}
                   </h3>
                   <p className="text-gray-300 mb-6">
-                    {submitStatus === 'success' 
-                      ? "Thank you for reaching out! I'll get back to you as soon as possible." 
+                    {submitStatus === 'success'
+                      ? "Thank you for reaching out! I'll get back to you as soon as possible."
                       : "There was an issue sending your message. Please try again later."}
                   </p>
-                  
+
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
